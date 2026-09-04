@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кафе «Полдень» — завтраки, кофе и обед в центре</title>
+<meta name="description" content="Кафе «Полдень»: сырники с фермерской сметаной, суп дня, фильтр-кофе собственной обжарки. Доставка, бронь столиков, акции.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌞</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="noise"></div>
+
+<!-- Бегущая строка -->
+<div class="ticker" aria-hidden="true">
+  <div class="tk-track">
+    <div class="tk-g"><span>Сегодня: крем-суп из тыквы</span><i>✶</i><span>Сырники подаём до 14:00</span><i>✶</i><span>Рефил фильтр-кофе — 60 ₽</span><i>✶</i><span>Код ПОЛДЕНЬ10 → −10 %</span><i>✶</i><span>Счастливые часы 15:00–17:00</span><i>✶</i><span>Столики у окна уже согреты</span><i>✶</i></div>
+    <div class="tk-g"><span>Сегодня: крем-суп из тыквы</span><i>✶</i><span>Сырники подаём до 14:00</span><i>✶</i><span>Рефил фильтр-кофе — 60 ₽</span><i>✶</i><span>Код ПОЛДЕНЬ10 → −10 %</span><i>✶</i><span>Счастливые часы 15:00–17:00</span><i>✶</i><span>Столики у окна уже согреты</span><i>✶</i></div>
+  </div>
+</div>
+
+<!-- Шапка -->
+<header class="hdr" id="siteHeader">
+  <div class="wrap hdr-in">
+    <a class="logo" href="#top" aria-label="Кафе Полдень — на главную">
+      <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="9" fill="#F2B33D" stroke="#2A2118" stroke-width="2.5"/><g stroke="#E4572E" stroke-width="2.5" stroke-linecap="round"><line x1="20" y1="2" x2="20" y2="7"/><line x1="20" y1="33" x2="20" y2="38"/><line x1="2" y1="20" x2="7" y2="20"/><line x1="33" y1="20" x2="38" y2="20"/><line x1="7" y1="7" x2="10.5" y2="10.5"/><line x1="29.5" y1="29.5" x2="33" y2="33"/><line x1="33" y1="7" x2="29.5" y2="10.5"/><line x1="10.5" y1="29.5" x2="7" y2="33"/></g></svg>
+      <b>полдень</b><i>кафе</i>
+    </a>
+    <nav class="nav" id="navLinks">
+      <a href="#menu">Меню</a>
+      <a href="#special">Блюдо дня</a>
+      <a href="#promos">Акции</a>
+      <a href="#vibe">Атмосфера</a>
+      <a href="#booking">Бронь</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <button class="cart-btn" id="cartBtn" aria-label="Открыть корзину">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 8h16l-1.5 12h-13L4 8z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+      <span class="lbl">Корзина</span>
+      <span class="cnt" id="cartCount">0</span>
+    </button>
+    <button class="burger" id="burger" aria-label="Меню навигации"><svg width="22" height="22" viewBox="0 0 24 24" stroke="#2A2118" stroke-width="2.6" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+<!-- ГЕРОЙ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="kick">Кафе «Полдень» · с 2019 года · Москва</span>
+      <h1>
+        <span class="hl"><span style="--d:.05s">Еда, ради которой</span></span>
+        <span class="hl"><span style="--d:.18s">хочется</span></span>
+        <span class="hl"><span style="--d:.31s"><span class="mark">просыпаться.</span></span></span>
+      </h1>
+      <p class="lead">Сырники на фермерском твороге, суп дня, фильтр-кофе собственной обжарки и то самое место у окна — уже согрето.</p>
+      <div class="hero-chips">
+        <span class="chip"><span class="dot" id="openDot"></span><span id="openText">Открыто</span></span>
+        <span class="chip">★ 4,9 · 2 400+ отзывов</span>
+        <span class="chip">📍 ул. Лесная, 12</span>
+      </div>
+      <div class="cta-row">
+        <a href="#menu" class="btn btn-ink">Смотреть меню ↓</a>
+        <a href="#booking" class="btn btn-ghost">Забронировать столик</a>
+      </div>
+      <span class="hand-note">меню обновляем каждый сезон ↷</span>
+    </div>
+    <div class="hero-visual">
+      <svg class="doodle d1" width="54" height="54" viewBox="0 0 54 54" fill="none"><path d="M27 4l5 16 16 2-13 11 4 17-12-9-12 9 4-17L6 22l16-2z" fill="#F2B33D" stroke="#2A2118" stroke-width="2.5" stroke-linejoin="round"/></svg>
+      <svg class="doodle d2" width="70" height="30" viewBox="0 0 70 30" fill="none"><path d="M3 20c8-14 14 8 22-6s12 8 20-4 12 6 22-4" stroke="#E4572E" stroke-width="3" stroke-linecap="round"/></svg>
+      <div class="arch">
+        <img src="https://picsum.photos/seed/polden-lunch-table/720/900" alt="Обед в кафе «Полдень»">
+        <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+      <svg class="sun-badge" viewBox="0 0 130 130" aria-hidden="true">
+        <circle cx="65" cy="65" r="62" fill="#F2B33D" stroke="#2A2118" stroke-width="3"/>
+        <defs><path id="circ" d="M65,65 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+        <text font-family="Unbounded,sans-serif" font-size="11.5" font-weight="700" fill="#2A2118" letter-spacing="2.5"><textPath href="#circ">КАФЕ ПОЛДЕНЬ • КОФЕ • БРАНЧИ • ДЕСЕРТЫ • </textPath></text>
+        <circle cx="65" cy="65" r="10" fill="#E4572E" stroke="#2A2118" stroke-width="2.5"/>
+        <g stroke="#2A2118" stroke-width="2.5" stroke-linecap="round"><line x1="65" y1="44" x2="65" y2="50"/><line x1="65" y1="80" x2="65" y2="86"/><line x1="44" y1="65" x2="50" y2="65"/><line x1="80" y1="65" x2="86" y2="65"/></g>
+      </svg>
+      <div class="sticker st-1">🥞 сырники · 340 ₽</div>
+      <div class="sticker st-2">тыквенный латте −20%</div>
+      <figure class="hero-pola">
+        <img src="https://picsum.photos/seed/polden-breakfast-set/360/300" alt="Завтрак в кафе">
+        <figcaption>завтраки до 14:00 ☀</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Строка с блюдами -->
+<div class="mq" aria-hidden="true">
+  <div class="mq-track">
+    <div class="mq-g"><span>Сырники</span><i>✶</i><em>Медовик</em><i>✶</i><span>Шакшука</span><i>✶</i><em>Тыквенный латте</em><i>✶</i><span>Бургер «Полдень»</span><i>✶</i><em>Улитка с корицей</em><i>✶</i></div>
+    <div class="mq-g"><span>Сырники</span><i>✶</i><em>Медовик</em><i>✶</i><span>Шакшука</span><i>✶</i><em>Тыквенный латте</em><i>✶</i><span>Бургер «Полдень»</span><i>✶</i><em>Улитка с корицей</em><i>✶</i></div>
+  </div>
+</div>
+
+<!-- МЕНЮ -->
+<section class="sec" id="menu">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">свежее из печи ↓</span>
+      <h2>Что сегодня <em>вкусного</em></h2>
+    </div>
+    <div class="menu-layout">
+      <aside class="rail rv" style="--d:.1s">
+        <div class="search">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2A2118" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+          <input type="text" id="searchInput" placeholder="Найти блюдо…" aria-label="Поиск по меню">
+        </div>
+        <div class="cat-list" id="railCats"></div>
+        <div class="happy-chip" id="happyChip">⚡ Сейчас счастливые часы — −15% на напитки в зале (15:00–17:00)</div>
+        <div class="rail-promo">
+          <b>−15% на всё от 1 200 ₽</b><br>
+          по коду <code>СОЛНЦЕ15</code> в корзине
+          <br><button class="copy-mini" data-copy="СОЛНЦЕ15">📋 Скопировать код</button>
+        </div>
+      </aside>
+      <div>
+        <p class="menu-count rv" id="menuCount"></p>
+        <div class="menu-grid anim" id="menuGrid" style="margin-top:1rem"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- БЛЮДО ДНЯ -->
+<section class="sec special" id="special">
+  <svg class="sp-star" style="top:8%;left:4%;--r:10deg" width="44" height="44" viewBox="0 0 54 54"><path d="M27 4l5 16 16 2-13 11 4 17-12-9-12 9 4-17L6 22l16-2z" fill="#F2B33D"/></svg>
+  <svg class="sp-star" style="bottom:10%;right:6%;--r:-14deg;animation-delay:2s" width="34" height="34" viewBox="0 0 54 54"><path d="M27 4l5 16 16 2-13 11 4 17-12-9-12 9 4-17L6 22l16-2z" fill="#E4572E"/></svg>
+  <div class="wrap special-grid">
+    <div class="special-img rv">
+      <img src="https://picsum.photos/seed/duck-breast-dinner/820/660" alt="Утиная грудка с вишнёвым соусом">
+      <span class="sale-tag">−20%</span>
+    </div>
+    <div class="rv" style="--d:.12s">
+      <span class="eyebrow">сегодня, пока не стемнело</span>
+      <h2>Утиная грудка <em>с вишнёвым соусом</em></h2>
+      <p class="lead" style="margin-top:1rem">Пюре из пастернака, печёная свёкла и демиглас, который мы варим два дня. Только сегодня и только 20 порций.</p>
+      <div class="cd-row" role="timer" aria-label="До конца акции">
+        <div class="cd"><b id="cdH">00</b><i>часов</i></div>
+        <div class="cd"><b id="cdM">00</b><i>минут</i></div>
+        <div class="cd"><b id="cdS">00</b><i>секунд</i></div>
+        <span class="cd-label">до конца цены ↑</span>
+      </div>
+      <div class="sp-price"><span class="new">590 ₽</span><span class="old">вместо 740 ₽ · 340 г</span></div>
+      <button class="btn btn-mustard" data-add="duck">В корзину — 590 ₽</button>
+    </div>
+  </div>
+</section>
+
+<!-- АКЦИИ -->
+<section class="sec" id="promos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">приятности</span>
+      <h2>Акции и <em>маленькие радости</em></h2>
+    </div>
+    <div class="promos-grid">
+      <div class="promo-card rv" style="--bg:#FDE6BE;--d:0s">
+        <span class="ic">🕒</span>
+        <h3>Счастливые часы</h3>
+        <p>Каждый день с 15:00 до 17:00 — −15% на все напитки и выпечку в зале.</p>
+        <small>Не суммируется с другими акциями</small>
+      </div>
+      <div class="promo-card rv" style="--bg:#FBD9C9;--d:.08s">
+        <span class="ic">🎓</span>
+        <h3>Студентам −15%</h3>
+        <p>По будням до 16:00 покажите студенческий — и скидка ваша. Сессия — не повод голодать.</p>
+        <small>При предъявлении студенческого билета</small>
+      </div>
+      <div class="promo-card rv" style="--bg:#DDEBD6;--d:.16s">
+        <span class="ic">☕️</span>
+        <h3>Шестой кофе в подарок</h3>
+        <p>Копим штампы на фирменной карточке: пять кругов — шестая чашка за наш счёт.</p>
+        <small>Карточку выдаст бариста</small>
+      </div>
+      <div class="promo-card rv" style="--bg:var(--cream);--d:.24s">
+        <span class="ic">🎂</span>
+        <h3>Именинникам — десерт</h3>
+        <p>В день рождения и ±2 дня дарим медовик и поём (если попросите). По паспорту.</p>
+        <small>Один десерт на компанию</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- АТМОСФЕРА -->
+<section class="sec vibe" id="vibe">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">загляните на огонёк</span>
+      <h2>Наша <em>атмосфера</em> в снимках</h2>
+    </div>
+    <div class="polas">
+      <figure class="pola rv" style="--r:-4deg"><img src="https://picsum.photos/seed/cafe-interior-morning/520/420" alt="Утро у окна"><figcaption>утро у окна</figcaption></figure>
+      <figure class="pola rv" style="--r:3deg;--d:.08s"><img src="https://picsum.photos/seed/latte-art-heart/520/420" alt="Латте-арт"><figcaption>латте-арт от Марины</figcaption></figure>
+      <figure class="pola rv" style="--r:-2deg;--d:.16s"><img src="https://picsum.photos/seed/pastry-window-display/520/420" alt="Витрина к открытию"><figcaption>витрина к открытию</figcaption></figure>
+      <figure class="pola rv" style="--r:5deg;--d:.1s"><img src="https://picsum.photos/seed/friends-breakfast-table/520/420" alt="Суббота за столом"><figcaption>суббота, стол на четверых</figcaption></figure>
+      <figure class="pola rv" style="--r:-5deg;--d:.18s"><img src="https://picsum.photos/seed/barista-brewing-coffee/520/420" alt="Бариста за работой"><figcaption>Артём варит ваш фильтр</figcaption></figure>
+      <figure class="pola rv" style="--r:2deg;--d:.26s"><img src="https://picsum.photos/seed/table-fresh-flowers/520/420" alt="Цветы на столе"><figcaption>цветы — каждую неделю</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ОТЗЫВЫ -->
+<section class="sec" id="reviews">
+  <div class="wrap">
+    <div class="sec-head rv" style="display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+      <div><span class="eyebrow">гости говорят</span><h2>Нас <em>хвалить</em> не стыдно</h2></div>
+      <div class="rv-nav"><button class="rv-btn" id="rvPrev" aria-label="Назад">←</button><button class="rv-btn" id="rvNext" aria-label="Вперёд">→</button></div>
+    </div>
+    <div class="rv-row" id="rvRow">
+      <article class="review">
+        <div class="rev-head"><img src="https://picsum.photos/seed/guest-marina/96/96" alt=""><div><b>Марина К.</b><span>2 недели назад</span></div></div>
+        <div class="stars">★★★★★</div>
+        <p>Сырники — лучшие в районе, я проверяла. Снаружи корочка, внутри облако, малиновый соус — отдельная любовь. Ухожу счастливой каждые выходные.</p>
+        <span class="dish-tag">🥞 Сырники со сметаной</span>
+      </article>
+      <article class="review">
+        <div class="rev-head"><img src="https://picsum.photos/seed/guest-dmitry/96/96" alt=""><div><b>Дима О.</b><span>месяц назад</span></div></div>
+        <div class="stars">★★★★★</div>
+        <p>Фильтр меняют по неделям, рефил за 60 рублей — гениально. Работаю тут по утрам: розетки есть, музыка не орёт, никто не выгоняет.</p>
+        <span class="dish-tag">☕️ Фильтр-кофе</span>
+      </article>
+      <article class="review">
+        <div class="rev-head"><img src="https://picsum.photos/seed/guest-anya-sergey/96/96" alt=""><div><b>Аня и Сергей</b><span>месяц назад</span></div></div>
+        <div class="stars">★★★★★</div>
+        <p>Бронировали столик у окна на годовщину — поставили свечку и подписали открытку от руки. Мелочь, а помним до сих пор. Медовик доедали вдвоём одной ложкой.</p>
+        <span class="dish-tag">🍰 Медовик по-домашнему</span>
+      </article>
+      <article class="review">
+        <div class="rev-head"><img src="https://picsum.photos/seed/guest-timur/96/96" alt=""><div><b>Тимур А.</b><span>2 месяца назад</span></div></div>
+        <div class="stars">★★★★☆</div>
+        <p>Тыквенный латте — топ, не приторный. Минус звезда за то, что улитки с корицей заканчиваются к обеду. Но это, скорее, комплимент.</p>
+        <span class="dish-tag">🎃 Тыквенный латте</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- О НАС -->
+<section class="sec" id="about">
+  <div class="wrap about-grid">
+    <div class="about rv">
+      <span class="eyebrow">кто мы такие</span>
+      <h2 style="margin-bottom:1.3rem">Готовим как дома, <em>только лучше</em></h2>
+      <p>«Полдень» открыли в 2019-м Аня и Марк — она кондитер, он бариста. Идея была простой: кафе, куда ходят «к своим». Творог привозит ферма из Подмосковья, хлеб печём сами, зерно обжариваем раз в две недели.</p>
+      <p>Меню небольшое — зато всё успевает готовиться из-под ножа. Каждый сезон что-то уходит, что-то приходит: тыквенный латте осенью, окрошка летом, какао с домашними маршмеллоу зимой.</p>
+      <p>Если у вас аллергия или вы не едите глютен — скажите, почти любое блюдо подстроим.</p>
+      <p class="signature">— Аня и Марк, основатели ♥</p>
+    </div>
+    <div class="stats">
+      <div class="stat rv"><b class="stat-n" data-n="214500">0</b><span>гостей накормили с 2019 года</span></div>
+      <div class="stat rv" style="--d:.08s"><b class="stat-n" data-n="96800">0</b><span>чашек кофе наливаем за год</span></div>
+      <div class="stat rv" style="--d:.16s"><b class="stat-n" data-n="42">0</b><span>блюда в постоянном меню</span></div>
+      <div class="stat rv" style="--d:.24s"><b class="stat-n" data-n="4.9" data-dec="1">0</b><span>средний балл на картах</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- БРОНИРОВАНИЕ -->
+<section class="sec book" id="booking">
+  <div class="wrap book-grid">
+    <div class="book-info rv">
+      <p class="book-quote">«Столик у окна придержим пятнадцать минут. Как договорились?» 🙂</p>
+      <ul>
+        <li><span class="em">📞</span><span>Позвонить: <a href="tel:+74951234567" style="font-weight:800">+7 (495) 123-45-67</a> — быстрее всего</span></li>
+        <li><span class="em">✉️</span><span>Написать: <a href="mailto:privet@polden.cafe" style="font-weight:800">privet@polden.cafe</a></span></li>
+        <li><span class="em">👥</span><span>Компании от 8 человек и банкеты — только по почте или телефону</span></li>
+        <li><span class="em">🕗</span><span>Бронь держим 15 минут, дальше — как повезёт</span></li>
+      </ul>
+    </div>
+    <div class="book-card rv" style="--d:.12s" id="bookCard">
+      <form id="bookForm" novalidate>
+        <div class="f-row">
+          <div class="field"><label for="bName">Имя</label><input id="bName" type="text" placeholder="Как к вам обращаться?" autocomplete="name"><small>Напишите имя</small></div>
+          <div class="field"><label for="bPhone">Телефон</label><input id="bPhone" type="tel" placeholder="+7 (___) ___-__-__" autocomplete="tel"><small>Проверьте номер</small></div>
+        </div>
+        <div class="f-row">
+          <div class="field"><label for="bDate">Дата</label><input id="bDate" type="date"><small>Выберите дату</small></div>
+          <div class="field"><label for="bTime">Время</label><select id="bTime"></select><small>Выберите время</small></div>
+        </div>
+        <div class="f-row">
+          <div class="field"><label for="bGuests">Гостей</label><select id="bGuests"><option>1 гость</option><option selected>2 гостя</option><option>3 гостя</option><option>4 гостя</option><option>5 гостей</option><option>6 гостей</option><option>7 гостей</option><option>8+ — позвоним лично</option></select></div>
+          <div class="field"><label for="bNote">Пожелания</label><input id="bNote" type="text" placeholder="У окна, детский стул…"></div>
+        </div>
+        <button type="submit" class="btn btn-tomato" style="width:100%;justify-content:center">Забронировать столик</button>
+        <p class="demo-note">Отправим подтверждение по SMS. Это демо — данные никуда не уходят.</p>
+      </form>
+      <div class="ok-card" id="bookOk" hidden>
+        <div class="ok-burst">✓</div>
+        <h3>Столик почти ваш!</h3>
+        <p id="bookSummary"></p>
+        <p style="margin-top:.6rem">Перезвоним в течение 15 минут подтвердить бронь.</p>
+        <button class="btn btn-ghost" id="bookAgain" style="margin-top:1.2rem">Забронировать ещё</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section class="sec contacts" id="contacts">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">заходите в гости</span>
+      <h2>Как нас <em>найти</em></h2>
+    </div>
+    <div class="cont-grid">
+      <div class="cont-card rv">
+        <h3>📍 Адрес</h3>
+        <p>Москва, ул. Лесная, 12 · вход со двора, оранжевая дверь.<br>3 минуты пешком от м. Белорусская.</p>
+        <div class="map-mini"><img src="https://picsum.photos/seed/lesnaya-street-map/700/360" alt="Карта проезда"><span class="map-pin">📍</span></div>
+      </div>
+      <div class="cont-card rv" style="--d:.08s">
+        <h3>🕗 Часы работы</h3>
+        <div id="hoursTable">
+          <div class="hours-row" data-day="1"><span>Понедельник</span><span>08:00 – 23:00</span></div>
+          <div class="hours-row" data-day="2"><span>Вторник</span><span>08:00 – 23:00</span></div>
+          <div class="hours-row" data-day="3"><span>Среда</span><span>08:00 – 23:00</span></div>
+          <div class="hours-row" data-day="4"><span>Четверг</span><span>08:00 – 23:00</span></div>
+          <div class="hours-row" data-day="5"><span>Пятница</span><span>08:00 – 23:00</span></div>
+          <div class="hours-row" data-day="6"><span>Суббота</span><span>09:00 – 23:30</span></div>
+          <div class="hours-row" data-day="0"><span>Воскресенье</span><span>09:00 – 23:30</span></div>
+        </div>
+        <p style="margin-top:.8rem;font-size:.82rem;color:var(--ink-soft)">Кухня закрывается за 30 минут до конца.</p>
+      </div>
+      <div class="cont-card rv" style="--d:.16s">
+        <h3>✉️ Почта и телефон</h3>
+        <a href="tel:+74951234567">📞 +7 (495) 123-45-67</a>
+        <a href="mailto:privet@polden.cafe">💬 privet@polden.cafe — брони, вопросы</a>
+        <a href="mailto:event@polden.cafe">🎉 event@polden.cafe — банкеты и кейтеринг</a>
+        <a href="mailto:hello@polden.cafe">🤝 hello@polden.cafe — сотрудничество</a>
+      </div>
+      <div class="cont-card rv" style="--d:.24s">
+        <h3>🛵 Доставка</h3>
+        <p>Своя доставка по району — от 45 минут, бесплатно от 1 500 ₽. Также ищите нас в Яндекс Еде и Купере.</p>
+        <p style="margin-top:.7rem">Самовывоз готовим за 25 минут — скажите «заберу сам» по телефону.</p>
+        <p style="margin-top:.7rem"><b>Соцсети:</b> <a href="#" style="display:inline">Телеграм @polden_cafe</a> · <a href="#" style="display:inline">ВКонтакте</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ПОДВАЛ -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-mark" aria-hidden="true">полдень</div>
+    <div class="ftr-grid">
+      <div>
+        <h4>Кафе «Полдень»</h4>
+        <p>Москва, ул. Лесная, 12 · м. Белорусская.<br>Ежедневно с 8:00, по выходным с 9:00.<br>Завтраки, обед, кофе собственной обжарки.</p>
+        <p style="margin-top:.9rem"><a href="tel:+74951234567">+7 (495) 123-45-67</a><a href="mailto:privet@polden.cafe">privet@polden.cafe</a></p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <a href="#menu">Меню и цены</a>
+        <a href="#special">Блюдо дня</a>
+        <a href="#promos">Акции</a>
+        <a href="#booking">Бронь столика</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+      <div>
+        <h4>Письма по пятницам</h4>
+        <p>Раз в неделю: меню выходных, новые десерты и промокод для своих. Без спама, честно.</p>
+        <form class="sub-form" id="subForm">
+          <input type="email" id="subMail" placeholder="ваша@почта.ру" aria-label="Электронная почта">
+          <button type="submit">Подписаться</button>
+        </form>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <span>© 2019–2026 Кафе «Полдень» · ИП Соловьёва А. П. · ОГРНИП 320774600012345</span>
+      <span>Сделано с ♥ и корицей. Сайт-демо: оплата не подключена.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- КОРЗИНА -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer" aria-label="Корзина">
+  <div class="dr-head">
+    <h3>Ваш заказ</h3><span class="n" id="drCount"></span>
+    <span class="grow"></span>
+    <button id="clearCart">очистить</button>
+    <button class="dr-close" id="closeCart" aria-label="Закрыть корзину">✕</button>
+  </div>
+  <div class="dr-body" id="drBody">
+    <div class="dr-empty" id="drEmpty">
+      <span class="em">🍽️</span>
+      <p>Пока пусто… а сырники стынут!</p>
+      <a href="#menu" class="btn btn-ink" id="goMenu">К меню</a>
+    </div>
+    <div id="cartItems"></div>
+    <div class="dr-promo" id="promoRow">
+      <input type="text" id="promoInput" placeholder="Промокод" aria-label="Промокод">
+      <button id="promoApply">ОК</button>
+    </div>
+    <div class="promo-on" id="promoOn">🎟 <span id="promoOnCode"></span> — скидка применена <button id="promoRemove" aria-label="Убрать промокод">✕</button></div>
+  </div>
+  <div class="dr-foot" id="drFoot">
+    <p class="dlv-hint" id="dlvHint"></p>
+    <div class="dlv-bar"><div class="dlv-fill" id="dlvFill"></div></div>
+    <div class="sum-row"><span>Сумма</span><b id="sumSub"></b></div>
+    <div class="sum-row" id="rowSale" hidden><span>Скидка по меню</span><b class="sale" id="sumSale"></b></div>
+    <div class="sum-row" id="rowPromo" hidden><span>Промокод</span><b class="sale" id="sumPromo"></b></div>
+    <div class="sum-row"><span>Доставка</span><b id="sumDlv"></b></div>
+    <div class="sum-row total"><span>Итого</span><span id="sumTotal"></span></div>
+    <button class="btn btn-tomato checkout-btn" id="checkoutBtn">Оформить заказ →</button>
+    <p class="demo-note">Демо-режим: деньги не списываются 🙂</p>
+  </div>
+</aside>
+
+<!-- ОФОРМЛЕНИЕ -->
+<div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Оформление заказа">
+  <div class="modal-card">
+    <div id="coFormWrap">
+      <h3>Оформление заказа</h3>
+      <div class="seg">
+        <label class="seg-opt"><input type="radio" name="coView" value="delivery" checked><span>🛵 Доставка</span></label>
+        <label class="seg-opt"><input type="radio" name="coView" value="pickup"><span>🏃 Самовывоз</span></label>
+      </div>
+      <form id="coForm" novalidate>
+        <div class="f-row">
+          <div class="field"><label for="coName">Имя</label><input id="coName" type="text" placeholder="Кто встречает курьера?" autocomplete="name"><small>Напишите имя</small></div>
+          <div class="field"><label for="coPhone">Телефон</label><input id="coPhone" type="tel" placeholder="+7 (___) ___-__-__" autocomplete="tel"><small>Проверьте номер</small></div>
+        </div>
+        <div class="field"><label for="coMail">Почта для чека</label><input id="coMail" type="email" placeholder="вы@почта.ру" autocomplete="email"><small>Похоже на ошибку в адресе</small></div>
+        <div class="field" id="addrWrap"><label for="coAddr">Адрес доставки</label><input id="coAddr" type="text" placeholder="Улица, дом, квартира"><small>Куда везти?</small></div>
+        <div class="field"><label for="coComment">Комментарий</label><textarea id="coComment" placeholder="Домофон, аллергии, «без лука»…"></textarea></div>
+        <p style="font-weight:800;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin:.4rem 0 .7rem">Оплата</p>
+        <label class="pay-opt"><input type="radio" name="coPay" checked>💳 Картой при получении</label>
+        <label class="pay-opt"><input type="radio" name="coPay">💵 Наличными</label>
+        <label class="pay-opt dis"><input type="radio" name="coPay" disabled>🌐 Онлайн-оплата <span class="soon">скоро</span></label>
+        <div class="co-sum">
+          <div class="sum-row"><span>Сумма</span><b id="coSub"></b></div>
+          <div class="sum-row" id="coRowDisc" hidden><span>Скидка</span><b class="sale" id="coDisc"></b></div>
+          <div class="sum-row"><span>Доставка</span><b id="coDlv"></b></div>
+          <div class="sum-row total"><span>Итого</span><span id="coTotal"></span></div>
+        </div>
+        <button type="submit" class="btn btn-tomato" style="width:100%;justify-content:center">Подтвердить заказ ✓</button>
+        <p class="demo-note">Это демонстрационный заказ — оплата не подключена и ничего не списывается.</p>
+      </form>
+    </div>
+    <div class="ok-card" id="orderOk" hidden>
+      <div class="ok-burst">✓</div>
+      <h3>Заказ <span id="orderId"></span> принят!</h3>
+      <p id="okEta"></p>
+      <p style="margin-top:.5rem">Детали отправили на <b id="okMail"></b>. Курьер позвонит заранее.</p>
+      <button class="btn btn-ink" id="closeOk" style="margin-top:1.4rem">Отлично, жду 🙌</button>
+    </div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
